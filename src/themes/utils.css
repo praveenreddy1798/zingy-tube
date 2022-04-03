@@ -1,0 +1,289 @@
+.main-section {
+  background-color: var(--lynx-white);
+  margin-top: 5.75rem;
+  overflow-y: auto;
+}
+
+.main-section-strech {
+  background-color: var(--lynx-white);
+  grid-column-start: 1;
+  grid-column-end: -1;
+}
+
+.video-card {
+  width: 20rem;
+}
+.video-main-section {
+  overflow-y: hidden;
+}
+
+.thumbnail {
+  width: 100%;
+  height: 12.5rem;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.text-align-left {
+  text-align: left;
+}
+
+.text-align-right {
+  text-align: right;
+}
+
+.icon-menu-section {
+  right: 1rem;
+  top: 1rem;
+  color: black;
+}
+
+.mg-r-md {
+  margin-right: 1.5rem;
+}
+
+.fa-2x {
+  font-size: 1.25em;
+}
+
+.menu-item:hover {
+  background-color: var(--secondary-lightest);
+}
+
+.bg-lynx-white {
+  background-color: var(--lynx-white);
+}
+
+.watch-badge {
+  top: 0;
+  background-color: var(--primary);
+}
+
+.option-container {
+  right: 2rem;
+  z-index: 2;
+  top: 1.5rem;
+}
+.btn-icon-card {
+  top: 0.25rem;
+  right: 0.25rem;
+}
+
+.right-pane {
+  width: max-content;
+  padding: 1rem 2rem;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.video-page-container {
+  background-color: var(--lynx-white);
+}
+.left-pane {
+  width: auto;
+  padding: 1rem 2rem;
+}
+
+.right-pane {
+  width: max-content;
+  margin-top: 2.125rem;
+}
+
+.left-pane {
+  flex-grow: 1;
+  width: 60%;
+}
+.main-container {
+  height: 100%;
+}
+
+.video-player-container {
+  width: 100%;
+  height: 60vh;
+}
+
+.video-player-iframe {
+  height: 100%;
+  max-inline-size: initial;
+  aspect-ratio: initial;
+  object-fit: contain;
+}
+
+.watch-later-section {
+  flex-wrap: nowrap;
+  gap: 1rem;
+}
+
+.like-icon,
+.heart-icon,
+.playlist-icon {
+  font-size: 1.5em;
+}
+.gap-1p5 {
+  gap: 1.5rem;
+}
+.gap-p75 {
+  gap: 0.75rem;
+}
+.description-section {
+  padding-bottom: 1rem;
+}
+.action-icons-container {
+  width: 100%;
+  height: 2.5rem;
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  border-top: none;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.5rem;
+}
+.responsive-grid-videos {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.secondary-dark {
+  color: var(--secondary-dark);
+}
+.primary-color {
+  color: var(--primary);
+}
+.modal-container {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+}
+.modal {
+  width: 25rem;
+  height: max-content;
+  border: 1px solid var(--primary);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.playlist-input {
+  width: 15rem;
+}
+.playlist-card {
+  width: 15rem;
+  height: 7.5rem;
+}
+.playlist-card:hover {
+  box-shadow: 13px 13px 21px -5px var(--box-shadow);
+}
+.close-button {
+  right: 0.25rem;
+  top: 0;
+}
+.fa-close {
+  font-size: 1.25em !important;
+}
+
+.playlist-section {
+  min-height: max-content;
+  max-height: 8rem;
+  overflow: auto;
+  min-width: 10rem;
+}
+
+.border-primary {
+  border: 1px solid var(--primary);
+}
+.nav-icon {
+  font-size: 2.85em;
+}
+.loader-container {
+  z-index: 9999;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.loader {
+  border: 0.5rem solid var(--secondary-lighter);
+  border-radius: 50%;
+  border-top: 0.5rem solid var(--action);
+  width: 4rem;
+  height: 4rem;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+}
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .video-player-container {
+    height: 30vh;
+  }
+  .nav-icon {
+    font-size: 2em;
+  }
+  .search {
+    width: 16rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .video-card {
+    width: 75%;
+  }
+  .thumbnail {
+    height: 16rem;
+  }
+  .fa-close {
+    font-size: 0.75em;
+  }
+  .option-container {
+    top: 1rem;
+  }
+  .main-section {
+    margin-top: 4.5rem;
+  }
+  .main-container {
+    height: max-content;
+  }
+  .left-pane {
+    width: 100%;
+  }
+  .right-pane {
+    width: 100%;
+    margin-top: 1rem;
+  }
+  .watch-later-section {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 1rem 1rem;
+    align-items: center;
+  }
+  .description-section {
+    padding-bottom: 0;
+  }
+  .search {
+    width: 14rem;
+  }
+}
+@media only screen and (max-width: 400px) {
+  .nav-logo {
+    font-size: 85%;
+  }
+}
