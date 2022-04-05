@@ -72,6 +72,9 @@ export const VideoListing = () => {
         </div>
         {!loading && (
           <div className="grid responsive-grid responsive-grid-videos gap-2 w-100 mg-t-md">
+            {!videos.length && !loading && (
+              <h1>Sorry, We couldn't find the videos you are looking for.</h1>
+            )}
             {videos?.map((video) => {
               const id = video.id;
               return <VideoCard key={id} video={video} />;

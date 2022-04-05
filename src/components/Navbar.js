@@ -1,8 +1,15 @@
 import { useState } from "react";
-import { Link, NavLink, useLocation } from "react-router-dom";
-import { useVideos } from "../context";
+import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
+import { useVideos, useAuth, useToast } from "../context";
+import { NAV_ACTIVE_BACKGROUND, NAV_ACTIVE_COLOR } from "../utils";
 export const Navbar = ({ displaySearch = false }) => {
   const { videosDispatch } = useVideos();
+  const {
+    auth: { isAuth },
+    setAuth,
+  } = useAuth();
+  const { toastDispatch } = useToast();
+  const navigate = useNavigate();
   const { pathname } = useLocation();
   const [searchValue, setSearchValue] = useState("");
   const [isMobileMenuVisible, setIsMobileMenuVisible] = useState(false);
@@ -19,10 +26,24 @@ export const Navbar = ({ displaySearch = false }) => {
   const getStyles = ({ isActive }) => {
     if (isActive) {
       return {
-        backgroundColor: "#f5f3ff",
-        color: "#45198b",
+        backgroundColor: NAV_ACTIVE_BACKGROUND,
+        color: NAV_ACTIVE_COLOR,
       };
     }
+  };
+
+  const logout = () => {
+    localStorage.removeItem("token");
+    setAuth({ isAuth: false, token: null, userDetails: {} });
+    videosDispatch({ type: "RESET_TO_INITIAL_STATE" });
+    toastDispatch({
+      type: "SHOW_TOAST",
+      payload: {
+        successMessage: MESSAGES.LOGOUT.SUCCESS,
+        errorMessage: null,
+      },
+    });
+    navigate("/login");
   };
 
   return (
@@ -58,7 +79,12 @@ export const Navbar = ({ displaySearch = false }) => {
           </div>
         )}
         <div className="flex-evenly pd-sm col-gap-2 nav-right">
-          <button className="btn btn-action">Login</button>
+          <button
+            onClick={() => (isAuth ? logout() : navigate("/login"))}
+            className="btn btn-action"
+          >
+            {isAuth ? "Logout" : "Login"}
+          </button>
           <Link to="/liked-videos">
             <div className="badge-container icon-badge">
               <button>
@@ -137,7 +163,7 @@ export const Navbar = ({ displaySearch = false }) => {
         <div className="sidebar sidebar-mobile pd-md">
           <ul className="sidebar-items flex-vertical align-center">
             <NavLink style={getStyles} to="/login">
-              <li>Login</li>
+              <li>{isAuth ? "Logout" : "Login"}</li>
             </NavLink>
             <NavLink style={getStyles} to="/liked-videos">
               <li>Liked videos</li>
