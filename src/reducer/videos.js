@@ -3,6 +3,8 @@ import {
   setSelectedCategoryFilter,
   setSelectedVideo,
   searchVideoByName,
+  setUserVideoDetails,
+  resetToInitailState,
 } from "../utils";
 
 export const videosReducer = (state, action) => {
@@ -15,6 +17,10 @@ export const videosReducer = (state, action) => {
       return searchVideoByName(state, action);
     case "SET_SELECTED_VIDEO":
       return setSelectedVideo(state, action);
+    case "SET_USER_VIDEO_DETAILS":
+      return setUserVideoDetails(state, action);
+    case "RESET_TO_INITIAL_STATE":
+      return resetToInitailState();
     default:
       return state;
   }

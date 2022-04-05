@@ -14,7 +14,7 @@ export const VideoCard = ({ video, displayDelete = false }) => {
   } = video;
   const publishedDate = moment(publishedAt).fromNow();
   return (
-    <div key={id} className="video-card border-light-grey position-relative">
+    <div key={id} className="video-card card border-light-grey position-relative">
       {displayDelete && (
         <button className="btn btn-icon btn-icon-card position-absolute rounded flex-center">
           <i className="fa fa-trash trash fa-2x"></i>

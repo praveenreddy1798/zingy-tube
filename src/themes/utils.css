@@ -196,11 +196,25 @@
 .nav-icon {
   font-size: 2.85em;
 }
+.password {
+  margin-left: -2rem;
+  padding: 0.5rem;
+}
+
 .loader-container {
   z-index: 9999;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.alert {
+  top: 0.875rem;
+  left: 50%;
+  min-width: 15rem;
+  max-width: max-content;
+  transform: translateX(-50%);
+  z-index: 2;
 }
 
 .loader {

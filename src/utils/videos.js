@@ -1,3 +1,4 @@
+import { videosInitialState } from "../context/videos";
 import { ACCEPTED_CATEGORY_FILTERS } from "./";
 
 const filterVideosByCategory = ({ videos, selectedCategoryFilter }) =>
@@ -54,14 +55,14 @@ export const setVideos = (videosState, action) => {
 
 export const setSelectedCategoryFilter = (state, action) => {
   const selectedCategory = [action.payload];
-  const { searchValue: searchVal } = state;
   const filteredVideos = filterVideosByAppliedFilters({
     state,
     selectedCategory,
-    searchVal,
+    searchVal: "",
   });
   return {
     ...state,
+    searchValue: "",
     selectedCategoryFilter: selectedCategory,
     videos: filteredVideos,
   };
@@ -90,3 +91,16 @@ export const setSelectedVideo = (state, action) => {
     mustWatchVideos,
   };
 };
+
+export const setUserVideoDetails = (state, action) => {
+  const { likes, history, playlists, watchlater } = action.payload;
+  return {
+    ...state,
+    likes,
+    history,
+    playlists,
+    watchlater,
+  };
+};
+
+export const resetToInitailState = () => ({ ...videosInitialState });
