@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import { useVideos, useAuth, useToast } from "../context";
-import { NAV_ACTIVE_BACKGROUND, NAV_ACTIVE_COLOR } from "../utils";
+import { MESSAGES, NAV_ACTIVE_BACKGROUND, NAV_ACTIVE_COLOR } from "../utils";
 export const Navbar = ({ displaySearch = false }) => {
   const { videosDispatch } = useVideos();
   const {
