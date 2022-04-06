@@ -32,6 +32,12 @@ export const MESSAGES = {
     REMOVE: "Removed from watch later",
     ERROR: SOMETHING_WENT_WRONG,
   },
+  HISTORY: {
+    ADD: "Added to history",
+    REMOVE: "Removed from history",
+    CLEAR: "Cleared all history",
+    ERROR: SOMETHING_WENT_WRONG,
+  },
 };
 
 export const NAV_ACTIVE_BACKGROUND = "#f5f3ff";

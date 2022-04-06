@@ -25,3 +25,5 @@ export { validateEmail, validatePassword, validateName } from "./validation";
 export { setWatchlaterVideos, inWatchlater } from "./watchlater";
 
 export { setLikedVideos, inLikes } from "./likes";
+
+export { setHistoryVideos, inHistory } from "./history";

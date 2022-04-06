@@ -4,14 +4,20 @@ import { useVideos, useAuth } from "../context";
 import {
   useAddToLikedVideos,
   useAddToWatchlaterVideos,
+  useRemoveFromHistoryVideos,
   useRemoveFromLikedVideos,
   useRemoveFromWatchlaterVideos,
 } from "../services";
 import { formatNumber, getStrippedText, inLikes, inWatchlater } from "../utils";
-export const VideoCard = ({ video, displayDelete = false }) => {
+export const VideoCard = ({
+  video,
+  displayDelete = false,
+  cardType = null,
+}) => {
   const {
     videosState: { likes, watchlater },
   } = useVideos();
+  const { removeFromHistory } = useRemoveFromHistoryVideos();
   const {
     auth: { isAuth },
   } = useAuth();
@@ -38,7 +44,10 @@ export const VideoCard = ({ video, displayDelete = false }) => {
       className="video-card card border-light-grey position-relative"
     >
       {displayDelete && (
-        <button className="btn btn-icon btn-icon-card position-absolute rounded flex-center">
+        <button
+          onClick={() => cardType === "history" && removeFromHistory(id, video)}
+          className="btn btn-icon btn-icon-card position-absolute rounded flex-center"
+        >
           <i className="fa fa-trash trash fa-2x"></i>
         </button>
       )}
