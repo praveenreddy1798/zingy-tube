@@ -1,21 +1,25 @@
+import ReactPlayer from "react-player/lazy";
+import { useAuth } from "../context";
 import { VIDEO_EMBED_URL } from "../utils";
 
 export const VideoPlayer = ({ videoId }) => {
-  const videoSrc = `${VIDEO_EMBED_URL}${videoId}?autoplay=1`;
+  const {
+    auth: { isAuth },
+  } = useAuth();
+  const videoSrc = VIDEO_EMBED_URL;
   return (
-    <div class="video-player-container mg-t-sm">
-      <iframe
-        className="video-player-iframe"
-        src={videoSrc}
+    <div className="video-player-container mg-t-sm">
+      <ReactPlayer
+        controls
+        onPlay={() => {
+          if (!played) {
+            setPlayed(true);
+          }
+        }}
         width="100%"
         height="100%"
-        title="Zingy Tube"
-        frameBorder="0"
-        allow={
-          "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        }
-        allowFullScreen
-      ></iframe>
+        url={`${videoSrc}${videoId}`}
+      />
     </div>
   );
 };

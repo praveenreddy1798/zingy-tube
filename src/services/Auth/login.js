@@ -21,7 +21,6 @@ export const useLogin = () => {
     payload,
   };
   const { data, loading, errorMessage } = useAxios(axiosParam, enabled);
-  console.log(data, loading, errorMessage);
   useEffect(() => {
     if (data?.encodedToken) {
       const foundUser = data.foundUser;

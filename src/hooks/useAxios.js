@@ -17,6 +17,7 @@ export const useAxios = (
           headers: token ? { authorization: token } : null,
           data: payload,
         });
+
         const { data, status } = response;
         if (status >= 200 && status < 300 && data) {
           setData(data);

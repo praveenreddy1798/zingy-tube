@@ -1,7 +1,6 @@
 import { toastInitialState } from "../context/toast";
 
 export const showToast = (state, action) => {
-  console.log(state, action);
   const { successMessage, errorMessage } = action.payload;
   return {
     ...state,

@@ -54,7 +54,8 @@ export const addItemToLikedVideos = function (schema, request) {
         }
       );
     }
-    user.likes.push(video);
+    user.likes.push({ ...video });
+
     return new Response(201, {}, { likes: user.likes });
   }
   return new Response(
@@ -75,7 +76,7 @@ export const removeItemFromLikedVideos = function (schema, request) {
   const user = requiresAuth.call(this, request);
   if (user) {
     const videoId = request.params.videoId;
-    const filteredLikes = user.likes.filter((item) => item._id !== videoId);
+    const filteredLikes = user.likes.filter((item) => item.id !== videoId);
     this.db.users.update({ likes: filteredLikes });
     return new Response(200, {}, { likes: filteredLikes });
   }

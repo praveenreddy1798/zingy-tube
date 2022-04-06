@@ -21,3 +21,7 @@ export { getStrippedText, delay, formatNumber } from "./general";
 export { showToast, hideToast } from "./toast";
 
 export { validateEmail, validatePassword, validateName } from "./validation";
+
+export { setWatchlaterVideos, inWatchlater } from "./watchlater";
+
+export { setLikedVideos, inLikes } from "./likes";

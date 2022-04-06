@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useVideos } from "../context";
 import { useAxios } from "../hooks";
 
-export const useQueryAllVideos = (searchParam) => {
+export const useQueryAllVideos = (searchParam = {}) => {
   const { videosDispatch } = useVideos();
   const searchParamKey = Object.keys(searchParam)?.[0];
   const searchParamValue = Object.values(searchParam)?.[0];
