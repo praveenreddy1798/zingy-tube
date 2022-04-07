@@ -100,7 +100,7 @@ export const Navbar = ({ displaySearch = false }) => {
                   aria-hidden="true"
                 ></i>
               </button>
-              <span className="rounded">{likes.length}</span>
+              {isAuth && <span className="rounded">{likes.length}</span>}
             </div>
           </Link>
           <Link to="/watch-later">
@@ -115,7 +115,7 @@ export const Navbar = ({ displaySearch = false }) => {
                   aria-hidden="true"
                 ></i>
               </button>
-              <span className="rounded">{watchlater.length}</span>
+              {isAuth && <span className="rounded">{watchlater.length}</span>}
             </div>
           </Link>
           <Link to="/watch-history">
@@ -130,7 +130,7 @@ export const Navbar = ({ displaySearch = false }) => {
                   aria-hidden="true"
                 ></i>
               </button>
-              <span className="rounded">{history.length}</span>
+              {isAuth && <span className="rounded">{history.length}</span>}
             </div>
           </Link>
           <Link to="/playlists">
@@ -145,7 +145,7 @@ export const Navbar = ({ displaySearch = false }) => {
                   aria-hidden="true"
                 ></i>
               </button>
-              <span className="rounded">{playlists.length}</span>
+              {isAuth && <span className="rounded">{playlists.length}</span>}
             </div>
           </Link>
         </div>

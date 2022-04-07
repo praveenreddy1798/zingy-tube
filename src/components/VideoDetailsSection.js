@@ -96,8 +96,12 @@ export const VideoDetailsSection = ({ video }) => {
             </button>
             <button
               onClick={() => {
-                setVideo(video);
-                setIsModalVisible(true);
+                if (!isAuth) {
+                  navigate("/login");
+                } else {
+                  setVideo(video);
+                  setIsModalVisible(true);
+                }
               }}
               className="flex-center bg-lynx-white gap-p5"
             >

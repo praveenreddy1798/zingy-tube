@@ -111,8 +111,12 @@ export const VideoCard = ({
           </button>
           <button
             onClick={() => {
-              setVideo(video);
-              setIsModalVisible(true);
+              if (!isAuth) {
+                navigate("/login");
+              } else {
+                setVideo(video);
+                setIsModalVisible(true);
+              }
             }}
           >
             <i
