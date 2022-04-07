@@ -1,5 +1,11 @@
 import { useLocation } from "react-router-dom";
-import { Loader, Navbar, VideoCard, VideoDetailsSection } from "../components";
+import {
+  Loader,
+  Navbar,
+  VideoCard,
+  VideoDetailsSection,
+  CreatePlaylist,
+} from "../components";
 import { useVideos } from "../context";
 import { useQueryVideoById } from "../services";
 
@@ -8,11 +14,12 @@ export const VideoDetail = () => {
   const { videoId } = location.state;
   const { loading } = useQueryVideoById(videoId);
   const {
-    videosState: { mustWatchVideos, selectedVideo},
+    videosState: { mustWatchVideos, selectedVideo },
   } = useVideos();
   return (
     <div className="page-wrapper">
       <Navbar />
+      <CreatePlaylist />
       <main className="main-section main-section-strech pd-b-sm">
         <Loader loading={loading} />
         {!loading && selectedVideo.id === videoId && (

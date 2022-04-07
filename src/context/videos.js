@@ -8,11 +8,11 @@ export const videosInitialState = {
   likes: [],
   history: [],
   playlists: [],
+  selectedPlaylist: {},
   watchlater: [],
   mustWatchVideos: [],
   selectedCategoryFilter: ["all"],
   searchValue: null,
-  toast: { isVisible: false, sucessMessage: null, errorMessage: null },
 };
 
 const VideosContext = createContext(videosInitialState);

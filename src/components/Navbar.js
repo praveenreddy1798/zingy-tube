@@ -100,7 +100,7 @@ export const Navbar = ({ displaySearch = false }) => {
                   aria-hidden="true"
                 ></i>
               </button>
-              <span className="rounded">{likes.length}</span>
+              {isAuth && <span className="rounded">{likes.length}</span>}
             </div>
           </Link>
           <Link to="/watch-later">
@@ -115,7 +115,7 @@ export const Navbar = ({ displaySearch = false }) => {
                   aria-hidden="true"
                 ></i>
               </button>
-              <span className="rounded">{watchlater.length}</span>
+              {isAuth && <span className="rounded">{watchlater.length}</span>}
             </div>
           </Link>
           <Link to="/watch-history">
@@ -130,22 +130,22 @@ export const Navbar = ({ displaySearch = false }) => {
                   aria-hidden="true"
                 ></i>
               </button>
-              <span className="rounded">{history.length}</span>
+              {isAuth && <span className="rounded">{history.length}</span>}
             </div>
           </Link>
-          <Link to="/playlist">
+          <Link to="/playlists">
             <div className="badge-container icon-badge">
               <button>
                 <i
                   className={`fa playlist-icon fa-caret-square-o-right pointer secondary-dark nav-icon ${
-                    pathname === "/playlist"
+                    pathname === "/playlists"
                       ? "primary-color"
                       : "secondary-color"
                   }`}
                   aria-hidden="true"
                 ></i>
               </button>
-              <span className="rounded">{playlists.length}</span>
+              {isAuth && <span className="rounded">{playlists.length}</span>}
             </div>
           </Link>
         </div>

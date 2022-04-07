@@ -1,4 +1,4 @@
-import { Loader, Navbar, VideoCard } from "../components";
+import { CreatePlaylist, Loader, Navbar, VideoCard } from "../components";
 import { useVideos } from "../context";
 import { useQueryWatchlaterVideos } from "../services";
 
@@ -10,6 +10,7 @@ export const WatchLater = () => {
   return (
     <div className="page-wrapper">
       <Navbar />
+      <CreatePlaylist />
       <main className="main-section main-section-strech pd-md">
         <Loader loading={loading} />
         {!loading && (

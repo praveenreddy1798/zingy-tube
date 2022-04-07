@@ -1,5 +1,10 @@
 import { useLocation } from "react-router-dom";
-import { VideoCard, Navbar, Loader } from "../components";
+import {
+  VideoCard,
+  Navbar,
+  Loader,
+  CreatePlaylist,
+} from "../components";
 import { useVideos } from "../context";
 import { useQueryAllVideos } from "../services";
 
@@ -22,7 +27,8 @@ export const VideoListing = () => {
   return (
     <div className="page-wrapper page-wrapper-filter-mob">
       <Navbar displaySearch />
-      <main className="main-section main-section-strech pd-md">
+      <CreatePlaylist />
+      <main className="main-section main-section-strech pd-md position-relative">
         <Loader loading={loading} />
         <div className="category-filters-section flex-center gap-1">
           <button
