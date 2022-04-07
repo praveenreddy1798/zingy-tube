@@ -49,7 +49,7 @@ export function makeServer({ environment = "development" } = {}) {
       video: Model,
       category: Model,
       user: Model,
-      like: Model,
+      likes: Model,
       history: Model,
       playlist: Model,
       watchlater: Model,
@@ -81,7 +81,7 @@ export function makeServer({ environment = "development" } = {}) {
 
       // video routes (public)
       this.get("/videos", getAllVideosHandler.bind(this));
-      this.get("video/:videoId", getVideoHandler.bind(this));
+      this.get("/video/:videoId", getVideoHandler.bind(this));
 
       // TODO: POST VIDEO TO DB
 

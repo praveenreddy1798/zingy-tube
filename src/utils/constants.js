@@ -5,7 +5,7 @@ export const ACCEPTED_CATEGORY_FILTERS = [
   "all",
 ];
 
-export const VIDEO_EMBED_URL = "https://www.youtube.com/embed/";
+export const VIDEO_EMBED_URL = "https://www.youtube.com/watch?v=";
 
 export const SOMETHING_WENT_WRONG =
   "Oops. Something went wrong. Please try again later.";
@@ -21,6 +21,16 @@ export const MESSAGES = {
   },
   LOGOUT: {
     SUCCESS: "Logout successful",
+  },
+  LIKES: {
+    ADD: "Added to liked videos",
+    REMOVE: "Removed from liked videos",
+    ERROR: SOMETHING_WENT_WRONG,
+  },
+  WATCHLATER: {
+    ADD: "Added to watch later",
+    REMOVE: "Removed from watch later",
+    ERROR: SOMETHING_WENT_WRONG,
   },
 };
 

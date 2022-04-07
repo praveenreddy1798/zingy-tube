@@ -3,7 +3,10 @@ import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import { useVideos, useAuth, useToast } from "../context";
 import { MESSAGES, NAV_ACTIVE_BACKGROUND, NAV_ACTIVE_COLOR } from "../utils";
 export const Navbar = ({ displaySearch = false }) => {
-  const { videosDispatch } = useVideos();
+  const {
+    videosDispatch,
+    videosState: { likes, playlists, history, watchlater },
+  } = useVideos();
   const {
     auth: { isAuth },
     setAuth,
@@ -97,7 +100,7 @@ export const Navbar = ({ displaySearch = false }) => {
                   aria-hidden="true"
                 ></i>
               </button>
-              <span className="rounded">0</span>
+              <span className="rounded">{likes.length}</span>
             </div>
           </Link>
           <Link to="/watch-later">
@@ -105,14 +108,14 @@ export const Navbar = ({ displaySearch = false }) => {
               <button className="wishlist">
                 <i
                   className={`fa fa-2x heart-icon fa-heart-o pointer nav-icon ${
-                    pathname === "/watchlist"
+                    pathname === "/watch-later"
                       ? "primary-color"
                       : "secondary-color"
                   }`}
                   aria-hidden="true"
                 ></i>
               </button>
-              <span className="rounded">0</span>
+              <span className="rounded">{watchlater.length}</span>
             </div>
           </Link>
           <Link to="/watch-history">
@@ -127,7 +130,7 @@ export const Navbar = ({ displaySearch = false }) => {
                   aria-hidden="true"
                 ></i>
               </button>
-              <span className="rounded">0</span>
+              <span className="rounded">{history.length}</span>
             </div>
           </Link>
           <Link to="/playlist">
@@ -142,7 +145,7 @@ export const Navbar = ({ displaySearch = false }) => {
                   aria-hidden="true"
                 ></i>
               </button>
-              <span className="rounded">0</span>
+              <span className="rounded">{playlists.length}</span>
             </div>
           </Link>
         </div>

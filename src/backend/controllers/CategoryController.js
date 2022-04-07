@@ -31,7 +31,7 @@ export const getAllCategoriesHandler = function () {
 export const getCategoryHandler = function (schema, request) {
   const { categoryId } = request.params;
   try {
-    const category = schema.categories.findBy({ _id: categoryId }).attrs;
+    const category = schema.categories.findBy({ id: categoryId }).attrs;
     return new Response(200, {}, { category });
   } catch (error) {
     return new Response(

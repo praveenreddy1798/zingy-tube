@@ -5,6 +5,8 @@ import {
   searchVideoByName,
   setUserVideoDetails,
   resetToInitailState,
+  setLikedVideos,
+  setWatchlaterVideos,
 } from "../utils";
 
 export const videosReducer = (state, action) => {
@@ -19,6 +21,10 @@ export const videosReducer = (state, action) => {
       return setSelectedVideo(state, action);
     case "SET_USER_VIDEO_DETAILS":
       return setUserVideoDetails(state, action);
+    case "SET_LIKED_VIDEOS":
+      return setLikedVideos(state, action);
+    case "SET_WATCHLATER_VIDEOS":
+      return setWatchlaterVideos(state, action);
     case "RESET_TO_INITIAL_STATE":
       return resetToInitailState();
     default:

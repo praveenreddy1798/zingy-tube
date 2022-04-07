@@ -104,7 +104,7 @@
   height: 60vh;
 }
 
-.video-player-iframe {
+iframe {
   height: 100%;
   max-inline-size: initial;
   aspect-ratio: initial;

@@ -1,7 +1,20 @@
 import moment from "moment";
 import { useNavigate } from "react-router";
-import { formatNumber, getStrippedText } from "../utils";
+import { useVideos, useAuth } from "../context";
+import {
+  useAddToLikedVideos,
+  useAddToWatchlaterVideos,
+  useRemoveFromLikedVideos,
+  useRemoveFromWatchlaterVideos,
+} from "../services";
+import { formatNumber, getStrippedText, inLikes, inWatchlater } from "../utils";
 export const VideoCard = ({ video, displayDelete = false }) => {
+  const {
+    videosState: { likes, watchlater },
+  } = useVideos();
+  const {
+    auth: { isAuth },
+  } = useAuth();
   const navigate = useNavigate();
   const {
     id,
@@ -12,9 +25,18 @@ export const VideoCard = ({ video, displayDelete = false }) => {
     thumbnails,
     videoType,
   } = video;
+  const { removeFromLiked } = useRemoveFromLikedVideos();
+  const { addToLiked } = useAddToLikedVideos();
+  const { removeFromWatchlater } = useRemoveFromWatchlaterVideos();
+  const { addToWatchLater } = useAddToWatchlaterVideos();
+  const isLiked = inLikes(likes, id);
+  const isWatchLatered = inWatchlater(watchlater, id);
   const publishedDate = moment(publishedAt).fromNow();
   return (
-    <div key={id} className="video-card card border-light-grey position-relative">
+    <div
+      key={id}
+      className="video-card card border-light-grey position-relative"
+    >
       {displayDelete && (
         <button className="btn btn-icon btn-icon-card position-absolute rounded flex-center">
           <i className="fa fa-trash trash fa-2x"></i>
@@ -30,15 +52,39 @@ export const VideoCard = ({ video, displayDelete = false }) => {
         loading="lazy"
       />
       <div className="action-icons-container border-light-grey">
-        <button>
+        <button
+          onClick={() =>
+            !isAuth
+              ? navigate("/login")
+              : isLiked
+              ? removeFromLiked(id, video)
+              : addToLiked(video)
+          }
+        >
           <i
-            className="fa like-icon fa-thumbs-up pointer secondary-dark"
+            className={`fa like-icon pointer ${
+              isLiked
+                ? "fa-thumbs-up primary-color"
+                : "fa-thumbs-o-up secondary-dark"
+            }`}
             aria-hidden="true"
           ></i>
         </button>
-        <button>
+        <button
+          onClick={() =>
+            !isAuth
+              ? navigate("/login")
+              : isWatchLatered
+              ? removeFromWatchlater(id, video)
+              : addToWatchLater(video)
+          }
+        >
           <i
-            className="fa fa-2x heart-icon fa-heart-o pointer secondary-dark"
+            className={`fa fa-2x heart-icon pointer ${
+              isWatchLatered
+                ? "fa-heart primary-color"
+                : "fa-heart-o secondary-dark"
+            }`}
             aria-hidden="true"
           ></i>
         </button>
@@ -65,7 +111,7 @@ export const VideoCard = ({ video, displayDelete = false }) => {
         </p>
       </div>
       <button
-        onClick={() => navigate(`/video/${id}`)}
+        onClick={() => navigate("/video", { state: { videoId: id } })}
         className="btn btn-secondary w-100"
       >
         Watch Now
