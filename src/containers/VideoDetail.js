@@ -8,7 +8,7 @@ export const VideoDetail = () => {
   const { videoId } = location.state;
   const { loading } = useQueryVideoById(videoId);
   const {
-    videosState: { mustWatchVideos, selectedVideo, videos },
+    videosState: { mustWatchVideos, selectedVideo},
   } = useVideos();
   return (
     <div className="page-wrapper">

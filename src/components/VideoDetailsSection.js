@@ -42,7 +42,12 @@ export const VideoDetailsSection = ({ video }) => {
         <h3 className="text-align-left semi-bold secondary-color mg-t-xxsm">
           {channelTitle}
         </h3>
-        <VideoPlayer videoId={id} played={played} setPlayed={setPlayed} />
+        <VideoPlayer
+          videoId={id}
+          played={played}
+          setPlayed={setPlayed}
+          video={video}
+        />
         <div className="flex-between  mg-t-sm">
           <p className="regular-text text-align-left">
             {formatNumber(viewsCount)} views | {publishedDate}

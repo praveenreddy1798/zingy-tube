@@ -11,3 +11,9 @@ export {
   useQueryWatchlaterVideos,
   useRemoveFromWatchlaterVideos,
 } from "./watch-later";
+export {
+  useAddToHistoryVideos,
+  useClearAllHistoryVideos,
+  useQueryHistoryVideos,
+  useRemoveFromHistoryVideos,
+} from "./history";

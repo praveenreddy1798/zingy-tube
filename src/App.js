@@ -9,8 +9,9 @@ import {
   Likes,
   WatchLater,
   NotFound,
+  History,
 } from "./containers";
-import { Message } from "./components";
+import { Message, PrivateRoute } from "./components";
 
 export default function App() {
   return (
@@ -20,8 +21,30 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/video-listing" element={<VideoListing />} />
         <Route path="/video" element={<VideoDetail />} />
-        <Route path="/liked-videos" element={<Likes />} />
-        <Route path="/watch-later" element={<WatchLater />} />
+        <Route
+          path="/liked-videos"
+          element={
+            <PrivateRoute>
+              <Likes />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/watch-later"
+          element={
+            <PrivateRoute>
+              <WatchLater />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/watch-history"
+          element={
+            <PrivateRoute>
+              <History />
+            </PrivateRoute>
+          }
+        />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="*" element={<NotFound />} />
