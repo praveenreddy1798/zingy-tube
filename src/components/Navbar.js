@@ -133,12 +133,12 @@ export const Navbar = ({ displaySearch = false }) => {
               <span className="rounded">{history.length}</span>
             </div>
           </Link>
-          <Link to="/playlist">
+          <Link to="/playlists">
             <div className="badge-container icon-badge">
               <button>
                 <i
                   className={`fa playlist-icon fa-caret-square-o-right pointer secondary-dark nav-icon ${
-                    pathname === "/playlist"
+                    pathname === "/playlists"
                       ? "primary-color"
                       : "secondary-color"
                   }`}

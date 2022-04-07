@@ -27,3 +27,5 @@ export { setWatchlaterVideos, inWatchlater } from "./watchlater";
 export { setLikedVideos, inLikes } from "./likes";
 
 export { setHistoryVideos, inHistory } from "./history";
+
+export { setPlaylistDetails, setPlaylists } from "./playlists";

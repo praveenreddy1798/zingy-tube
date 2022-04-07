@@ -17,3 +17,12 @@ export {
   useQueryHistoryVideos,
   useRemoveFromHistoryVideos,
 } from "./history";
+
+export {
+  useQueryPlaylists,
+  useAddPlaylists,
+  useRemovePlaylists,
+  useQueryPlaylistById,
+  useAddVideoToPlaylist,
+  useRemoveVideoFromPlaylist,
+} from "./playlists";

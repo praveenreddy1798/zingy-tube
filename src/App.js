@@ -10,6 +10,8 @@ import {
   WatchLater,
   NotFound,
   History,
+  Playlists,
+  Playlist,
 } from "./containers";
 import { Message, PrivateRoute } from "./components";
 
@@ -42,6 +44,22 @@ export default function App() {
           element={
             <PrivateRoute>
               <History />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/playlists"
+          element={
+            <PrivateRoute>
+              <Playlists />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/playlist"
+          element={
+            <PrivateRoute>
+              <Playlist />
             </PrivateRoute>
           }
         />

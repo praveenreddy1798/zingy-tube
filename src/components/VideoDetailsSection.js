@@ -2,7 +2,7 @@ import moment from "moment";
 import { useState } from "react";
 import { VideoPlayer } from ".";
 import { useNavigate } from "react-router";
-import { useAuth, useVideos } from "../context";
+import { useAuth, useModal, useVideos } from "../context";
 import {
   useAddToLikedVideos,
   useAddToWatchlaterVideos,
@@ -13,6 +13,7 @@ import { formatNumber, inLikes, inWatchlater } from "../utils";
 
 export const VideoDetailsSection = ({ video }) => {
   const [played, setPlayed] = useState(false);
+  const { setVideo, setIsModalVisible } = useModal();
   const navigate = useNavigate();
   const {
     auth: { isAuth },
@@ -93,7 +94,13 @@ export const VideoDetailsSection = ({ video }) => {
                 aria-hidden="true"
               ></i>
             </button>
-            <button className="flex-center bg-lynx-white gap-p5">
+            <button
+              onClick={() => {
+                setVideo(video);
+                setIsModalVisible(true);
+              }}
+              className="flex-center bg-lynx-white gap-p5"
+            >
               <p className="regular-text">Save</p>
               <i
                 className="fa playlist-icon fa-caret-square-o-right secondary-dark pointer"

@@ -156,21 +156,25 @@ iframe {
   height: 100%;
   width: 100%;
   position: fixed;
+  z-index: 5;
+  background-color: var(--black);
+  background-color: rgba(0, 0, 0, 0.4);
 }
 .modal {
   width: 25rem;
   height: max-content;
-  border: 1px solid var(--primary);
+  border: 1.5px solid var(--secondary-dark);
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 .playlist-input {
-  width: 15rem;
+  width: 16rem;
 }
 .playlist-card {
-  width: 15rem;
+  width: 16rem;
   height: 7.5rem;
+  border: 1.5px solid var(--secondary-dark);
 }
 .playlist-card:hover {
   box-shadow: 13px 13px 21px -5px var(--box-shadow);

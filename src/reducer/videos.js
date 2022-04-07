@@ -8,6 +8,8 @@ import {
   setLikedVideos,
   setWatchlaterVideos,
   setHistoryVideos,
+  setPlaylists,
+  setPlaylistDetails,
 } from "../utils";
 
 export const videosReducer = (state, action) => {
@@ -28,6 +30,10 @@ export const videosReducer = (state, action) => {
       return setWatchlaterVideos(state, action);
     case "SET_HISTORY_VIDEOS":
       return setHistoryVideos(state, action);
+    case "SET_PLAYLISTS":
+      return setPlaylists(state, action);
+    case "SET_PLAYLIST":
+      return setPlaylistDetails(state, action);
     case "RESET_TO_INITIAL_STATE":
       return resetToInitailState();
     default:

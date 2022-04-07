@@ -38,6 +38,16 @@ export const MESSAGES = {
     CLEAR: "Cleared all history",
     ERROR: SOMETHING_WENT_WRONG,
   },
+  PLAYLISTS: {
+    ADD: "Added new playlist",
+    REMOVE: "Removed playlist",
+    ERROR: SOMETHING_WENT_WRONG,
+  },
+  PLAYLIST_VIDEOS: {
+    ADD: "Added new playlist video",
+    REMOVE: "Removed video from playlist",
+    ERROR: SOMETHING_WENT_WRONG,
+  },
 };
 
 export const NAV_ACTIVE_BACKGROUND = "#f5f3ff";
