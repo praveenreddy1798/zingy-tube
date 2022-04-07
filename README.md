@@ -22,9 +22,9 @@ Zingy Tube is a clone of Youtube.
 - Watch Later
 - History
 - Authentication
-- Sign-up
-- Login
-- Logout
+  - Sign-up
+  - Login
+  - Logout
 
 ### P1
 
