@@ -6,13 +6,13 @@ export const PlaylistCard = ({ playlist }) => {
   const { title, videos, id } = playlist;
   const { removePlaylists } = useRemovePlaylists();
   return (
-    <div class="playlist-card pointer flex gap-p5 pointer border-radius-sm pd-xsm bg-white">
+    <div className="playlist-card pointer flex gap-p5 pointer border-radius-sm pd-xsm bg-white">
       <div
         onClick={() => navigate("/playlist", { state: { playlistId: id } })}
-        class="flex-vertical flex-grow-1 pd-xxsm"
+        className="flex-vertical flex-grow-1 pd-xxsm"
       >
-        <h4 class="text-align-left">{title}</h4>
-        <h4 class="secondary-color text-align-left mg-t-xsm">
+        <h4 className="text-align-left">{title}</h4>
+        <h4 className="secondary-color text-align-left mg-t-xsm">
           {videos?.length} videos
         </h4>
       </div>
@@ -20,7 +20,7 @@ export const PlaylistCard = ({ playlist }) => {
         onClick={() => removePlaylists(id, playlist)}
         className="btn btn-icon btn-icon-card rounded flex-center"
       >
-        <i class="fa fa-trash trash fa-2x"></i>
+        <i className="fa fa-trash trash fa-2x"></i>
       </button>
     </div>
   );

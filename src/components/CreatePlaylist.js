@@ -18,29 +18,29 @@ export const CreatePlaylist = ({ cardType = null }) => {
   const [playlistName, setPlaylistName] = useState("");
   return (
     isModalVisible && (
-      <div class="modal-container">
-        <div class="modal bg-white position-absolute border-radius-sm pd-sm position-relative">
+      <div className="modal-container">
+        <div className="modal bg-white position-absolute border-radius-sm pd-sm position-relative">
           <button
-            class="btn btn-icon position-absolute close-button"
+            className="btn btn-icon position-absolute close-button"
             onClick={() => {
               setIsModalVisible(false);
               setVideo({});
               setPlaylistName("");
             }}
           >
-            <i class="fa fa-2x fa-close secondary-color"></i>
+            <i className="fa fa-2x fa-close secondary-color"></i>
           </button>
           <h3 className="flex-center">
             {!cardType ? "Save to playlist" : "Create Playlist"}
           </h3>
           {!cardType && playlists.length > 0 && (
-            <div class="flex-center playlist-section mg-t-sm">
-              <div class="flex-vertical no-wrap row-gap-1 mg-b-sm">
+            <div className="flex-center playlist-section mg-t-sm">
+              <div className="flex-vertical no-wrap row-gap-1 mg-b-sm">
                 {playlists?.map((playlist) => {
                   const { title, id, videos } = playlist;
                   const videoInPlaylist = isVideoInPlaylist(videos, video.id);
                   return (
-                    <div class="flex align-center gap-1">
+                    <div className="flex align-center gap-1">
                       <input
                         id={id}
                         type="checkbox"
@@ -59,9 +59,9 @@ export const CreatePlaylist = ({ cardType = null }) => {
               </div>
             </div>
           )}
-          <div class="flex-center">
+          <div className="flex-center">
             <input
-              class="input input-primary playlist-input border-radius-sm mg-t-sm"
+              className="input input-primary playlist-input border-radius-sm mg-t-sm"
               type="text"
               placeholder="Create new playlist"
               value={playlistName}
@@ -78,7 +78,7 @@ export const CreatePlaylist = ({ cardType = null }) => {
                   setVideo({});
                 }
               }}
-              class={`btn btn-primary border-radius-sm mg-t-sm ${
+              className={`btn btn-primary border-radius-sm mg-t-sm ${
                 !playlistName ? "disabled" : ""
               }`}
             >
