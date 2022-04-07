@@ -106,7 +106,7 @@
 
 iframe {
   height: 100%;
-  max-inline-size: initial;
+  max-inline-size: 100%;
   aspect-ratio: initial;
   object-fit: contain;
 }

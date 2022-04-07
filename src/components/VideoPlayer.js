@@ -12,7 +12,6 @@ export const VideoPlayer = ({ videoId, played, setPlayed, video }) => {
   } = useVideos();
   const { addToHistory } = useAddToHistoryVideos();
   const videoSrc = VIDEO_EMBED_URL;
-  console.log(`${videoSrc}${videoId}`);
   return (
     <div className="video-player-container mg-t-sm">
       <ReactPlayer
